@@ -6,7 +6,37 @@
 </head>
 <body>
    <div class="root">
-      <div class="InfoBox"></div>
+      <img src="../pictures/MintTextOnly2.png" id="logoText">
+      <div class="infoBox">
+         <div class="userNameBox">
+            <input type="string" id="userName" class="infoBox1" placeholder="Please enter a username">
+            <div id="userNameError" class="errorBox1"></div>
+         </div>
+           <div class="emailBox">
+            <input id="email" class="infoBox1" placeholder="Enter your email">
+            <div id="emailError" class="errorBox1"></div>
+           </div>
+             <div id="passwordBox">
+               <input type="string" id="password" class="infoBox1" placeholder="Enter your password">
+               <div id="passwordError" class="errorBox1"></div>
+             </div>
+             <div id="repeatPasswordBox">
+               <input type="string" id="repeatPassword" class="infoBox1" placeholder="Repeat the password">
+                 <div id="repeatPasswordError" class="errorBox1"></div>
+             </div>
+             <div id="birthdateBox">
+               <input type="date" id="birthdate">
+               <div id="birthdateError" class="errorBox1"></div>
+             </div>
+                 <div id="signupBox">
+                  <button id="signup" class="signup">Sign Up</button>
+                  <div id="signupError" class="errorBox1"></div>
+                 </div>
+      </div>
+      <div id="loginRedirectBox">
+         <div id="redirectTextLeft">Already have an account?</div>
+         <a href="../LoginPage/login.html" id="redirectTextRight">Click Here</a>
+      </div>
    </div>
    <script defer src="signup.js"></script>
 </body>
