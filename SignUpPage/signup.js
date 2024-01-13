@@ -3,9 +3,10 @@ let userNameError = document.getElementById("userNameError");
 
 let signup = document.getElementById("signup");
 
-let userNameRegex = /^[A-z]{1}[a-z]{1,25}$/
+let userNameRegex = /^[a-z]{1}[a-z]{1,25}$/
 let emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z]+\.?[a-zA-z]+?\.[a-zA-Z]{2,}$/;
 let passwordRegex = /[a-zA-Z0-9!@#$%^&*()-_=+{}|[\];:'",.<>?\\]{6,30}/;
+let birthdateRegex = /^[1-2][9,0][0-9][0-9]-[0-1][0-9]-[0-9]{2}$/;
 
 signup.addEventListener('mouseover' , function () {
    signup.style.backgroundColor = "#C9BAFF";
@@ -22,6 +23,7 @@ let password = document.getElementById("password");
 let repeatPassword = document.getElementById("repeatPassword");
 let birthdate = document.getElementById("birthdate");
 let signupError = document.getElementById("signupError");
+let birthdateError = document.getElementById("birthdateError");
 
 
 signup.addEventListener('click' , function() {
@@ -49,6 +51,7 @@ signup.addEventListener('click' , function() {
       birthdate.addEventListener('input' , function(){
          signupError.innerHTML = "";
          userNameError.innerHTML = "";
+         birthdateError.innerHTML = "";
       });
 
    } else {
@@ -68,17 +71,40 @@ signup.addEventListener('click' , function() {
                if (repeatPassword.value === password.value) {
                     
                   repeatPasswordError.innerHTML = "";
+                  
+
+                  if (birthdate.value.match(birthdateRegex)) {
+
+                     let year1 = birthdate.value.slice(0,4);
+
+                     let year1Number = parseInt(year1);
+
+                     if (year1Number >= 1930) {
+                        birthdateError.innerHTML = "";
+                        
+                        let dateStringRemove = birthdate.value.replace(/-/g, '');
+                        let dateFull = parseInt(dateStringRemove);
+                        
+
+                     } else {
+                        birthdateError.innerHTML = "the minimum age is 1930";
+                     }
+
+                  } else {
+                     birthdateError.innerHTML = "please set a realistic date"
+                  }
 
                } else {
 
                  let repeatPasswordError = document.getElementById("repeatPasswordError");
-
+                 
                  repeatPasswordError.innerHTML = "please try again";
+
                }
 
             } else {
                
-               let passwordError = document.getElementById ("passwordError");
+               let psswordError = document.getElementById ("passwordError");
 
                if (password.value.length > 30 ) {
                   passwordError.innerHTML = "password can be 30 characters long";
