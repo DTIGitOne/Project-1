@@ -25,6 +25,31 @@ let birthdate = document.getElementById("birthdate");
 let signupError = document.getElementById("signupError");
 let birthdateError = document.getElementById("birthdateError");
 
+let showPasswordBox = document.getElementById("showPasswordBox");
+let showPassword = document.getElementById("showPassword");
+
+
+password.addEventListener("input" , function() {
+   
+
+   if (password.value !== "") {
+      showPassword.className = "checkbox2";
+   } else if (password.value === "") {
+      showPassword.className = "checkbox";
+   }
+      
+   
+
+   showPassword.addEventListener('mouseover', function() {
+      showPasswordBox.style.display = "inline";
+   }
+   );
+   showPassword.addEventListener('mouseleave', function() {
+      showPasswordBox.style.display = "none";
+   }
+   );
+}
+);
 
 signup.addEventListener('click' , function() {
         

@@ -9,7 +9,7 @@
       <img src="../pictures/MintTextOnly2.png" id="logoText">
       <div class="infoBox">
          <div class="userNameBox">
-            <input type="string" id="userName" class="infoBox1" placeholder="Please enter a username">
+            <input type="string" id="userName" class="infoBox1" placeholder="Please enter a username" maxlength="25">
             <div id="userNameError" class="errorBox1"></div>
          </div>
            <div class="emailBox">
@@ -17,11 +17,18 @@
             <div id="emailError" class="errorBox1"></div>
            </div>
              <div id="passwordBox">
-               <input type="string" id="password" class="infoBox1" placeholder="Enter your password">
+               <div id="boxForCheckBox" class="box1">
+                  <input type="string" id="password" class="infoBox1" placeholder="Enter your password" maxlength="30">
+                  <input type="checkbox" id="showPassword" class="checkbox">
+                  <div id="showPasswordBox" class="showPasswordBox">Show password</div>
+               </div>
                <div id="passwordError" class="errorBox1"></div>
              </div>
              <div id="repeatPasswordBox">
-               <input type="string" id="repeatPassword" class="infoBox1" placeholder="Repeat the password">
+               <div id="boxForCheckBox2" class="box1">
+                  <input type="string" id="repeatPassword" class="infoBox1" placeholder="Repeat the password" maxlength="30">
+                  <input type="checkbox" class="checkbox" id="showPassword2">
+               </div>
                  <div id="repeatPasswordError" class="errorBox1"></div>
              </div>
              <div id="birthdateBox">
