@@ -10,7 +10,7 @@
       <div class="infoBox">
          <div class="userNameBox">
             <input type="string" id="userName" class="infoBox1" placeholder="Please enter a username" maxlength="25">
-            <div id="userNameError" class="errorBox1"></div>
+            <div id="userNameError" class="errorBox2">username can contain _  ,  -  ,  .  </div>
          </div>
            <div class="emailBox">
             <input id="email" class="infoBox1" placeholder="Enter your email">
@@ -18,7 +18,7 @@
            </div>
              <div id="passwordBox">
                <div id="boxForCheckBox" class="box1">
-                  <input type="string" id="password" class="infoBox1" placeholder="Enter your password" maxlength="30">
+                  <input type="password" id="password" class="infoBox1" placeholder="Enter your password" maxlength="30">
                   <input type="checkbox" id="showPassword" class="checkbox">
                   <div id="showPasswordBox" class="showPasswordBox">Show password</div>
                </div>
@@ -26,8 +26,9 @@
              </div>
              <div id="repeatPasswordBox">
                <div id="boxForCheckBox2" class="box1">
-                  <input type="string" id="repeatPassword" class="infoBox1" placeholder="Repeat the password" maxlength="30">
+                  <input type="password" id="repeatPassword" class="infoBox1" placeholder="Repeat the password" maxlength="30">
                   <input type="checkbox" class="checkbox" id="showPassword2">
+                  <div id="showPasswordBox2" class="showPasswordBox">Show password</div>
                </div>
                  <div id="repeatPasswordError" class="errorBox1"></div>
              </div>
