@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Log In Page</title>
+   <link rel="stylesheet" href="login.css">
+</head>
+<body>
+   <div class="root">
+      <img src="../pictures/MintTextOnly2.png" id="logoText">
+      <div class="infoBox">
+         <div id="userBox">
+            <div id="usernameEmailEnterDiv">
+               <input id="usernameEmailEnter" class="infoBox1" placeholder="Please enter your username or email"></input>
+            </div>
+            <div id="usernameEmailEnterError" class="errorBox1"></div>
+         </div>
+          <div id="passBox">
+            <div id="passwordDiv" class="box1">
+               <input type="password" id="password" class="infoBox1" placeholder="Please enter your password">
+               <input type="checkbox" id="showPassword" class="checkbox">
+               <div id="showPasswordBox" class="showPasswordBox">Show password</div>
+             </div>
+             <div id="passswordError" class="errorBox1"></div>
+          </div>
+          <div id="VerifyBox">
+            <div id="verificationDiv">
+               <img src="/pictures/arrow-down-sign-to-navigate.png" id="dropdownIcon">
+               <div id="verifySelect" class="infoBox1">Select a verification method</div>
+            </div>
+            <div id="verifyError" class="errorBox3"></div>
+            <input id="verifyInput" class="infoBox1" placeholder="enter your verification code">
+            <div id="verifyError2" class="errorBox1"></div>
+          </div>
+          <div id="signupBox">
+            <button id="signUpInput" class="signup">Log In</button>
+            <div id="signupError" class="errorBox1"></div>
+          </div>
+      </div>
+      <div id="signupRedirect">
+         <div id="redirectTextLeft">Already have an account?</div>
+         <a href="../SignUpPage/index.html" id="redirectTextRight">Click here</a>
+      </div>
+   </div>
+   <script defer src="login.js"></script>
+</body>
+</html>

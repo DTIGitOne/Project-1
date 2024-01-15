@@ -1,0 +1,262 @@
+html {
+   height: 100%;
+}
+
+body {
+   height: 100%;
+   margin: 0;
+   background-color: #E5FFF1;
+}
+
+.root {
+   margin: 0;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.infoBox {
+   height: 465px;
+   width: 450px;
+   background-color: #A7D7C5;
+   border-radius: 30px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
+   display: flex;
+   gap: 7px;
+   flex-direction: column;
+   align-items: center;
+}
+
+#logoText {
+   width: 350px;
+   padding-bottom: 15px;
+   user-select: none;
+}
+
+#usernameEmailEnterDiv {
+   margin-top: 45px;
+}
+
+.infoBox1 {
+   height: 40px;
+   width: 360px;
+   background-color: #E5FFF1;
+   border: none;
+   border-radius: 10px;
+   font-size: 19px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   padding: 0px 0px 0px 9px;
+   box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+}
+
+.errorBox1 {
+   height: 33px;
+   width: 360px;
+   background-color: #A7D7C5;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   color: red;
+   font-size: 15px;
+   user-select: none;
+}
+
+.goBackButton {
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   color: black;
+   font-size: 15px;
+   cursor: pointer;
+   display: inline;
+   text-decoration: underline;
+}
+
+.showPasswordBox {
+   position: absolute;
+   margin-right: -25px;
+}
+
+.showPasswordBox {
+   position: absolute;
+   transform: translateX(-50%);
+   background-color: #DFD6FF;
+   color: black;
+   white-space: nowrap;
+   padding: 6px;
+   border-radius: 7px;
+   transition: 0.5s ease;
+   right: -55px;
+   top: -31px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 13px;
+   display: none;
+}
+
+
+.showPasswordBox::before {
+   content: "";
+   position: absolute;
+   transform: translateX(-50%);
+   border: 15px solid;
+   border-color: #DFD6FF #0000 #0000 #0000;
+   left: 50%;
+   top: 100%;
+}
+
+.box1 {
+   width: 100%;
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+}
+
+#VerifyBox {
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-items: center;
+   gap: 5px;
+   height: 162px;
+}
+
+.checkbox {
+   position: absolute;
+   margin-right: 15px;
+   height: 15px;
+   width: 15px;
+   z-index: 11;
+   display: none;
+}
+
+.checkbox2 {
+   position: absolute;
+   margin-right: 15px;
+   height: 15px;
+   width: 15px;
+   z-index: 11;
+   display: inline;
+}
+
+#verificationDiv { 
+   position: relative;
+   display: flex;
+   align-items: center;
+   justify-content: flex-end;
+   cursor: pointer;
+}
+
+#dropdownIcon {
+   height: 10px;
+   width: 10px;
+   position: absolute;
+   margin-right: 16px;
+}
+
+#verifySelect {
+   display: flex;
+   align-items: center;
+   color: #757589;
+}
+
+.dropdownSelect {
+   position: absolute;
+   width: 369px;
+   background-color: #E5FFF1;
+   height: 93px;
+   margin-top: 120px;
+   display: flex;
+   flex-direction: column;
+   gap: 3px;
+}
+
+.row1 {
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 19px;
+   padding-left: 9px;
+   color: #757589;
+   height: 40px;
+   width: 360px;
+   margin-top: 10px;
+   display: flex;
+   align-items: center;
+}
+
+.row2 {
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 19px;
+   padding-left: 9px;
+   color: #757589;
+   height: 40px;
+   width: 360px;
+   display: flex;
+   align-items: center;
+}
+
+.infoBoxForEmail {
+   height: 40px;
+   width: 360px;
+   background-color: #DFD6FF;
+   border: none;
+   border-radius: 10px;
+   font-size: 19px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   padding: 0px 0px 0px 9px;
+   box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+   cursor: pointer;
+   margin: 0px 0px 3px 0px;
+}
+
+#verifyInput {
+   visibility: hidden;
+}
+
+#verifyInput {
+   margin-top: 11px;
+}
+
+.infoBox5 {
+   height: 40px;
+   width: 369px;
+   background-color: #E5FFF1;
+   border: none;
+   border-radius: 10px;
+   font-size: 15px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   padding: 0px 10px 0px 9px;
+   box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+   box-sizing: border-box;
+}
+
+.signup {
+   height: 40px;
+   width: 360px;
+   background-color: #DFD6FF;
+   border: none;
+   border-radius: 10px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 20px;
+   cursor: pointer;
+   font-weight: 500;
+   box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#signupRedirect {
+   display: flex;
+   width: 450px;
+   height: 50px;
+   align-items: center;
+   justify-content: center;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   color: black;
+}
+
+#redirectTextRight {
+   padding-left: 8px;
+   color: black;
+}
