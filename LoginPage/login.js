@@ -9,6 +9,13 @@ let signUpInput = document.getElementById("signUpInput");
 let password = document.getElementById("password");
 let showPassword = document.getElementById("showPassword");
 let showPasswordBox = document.getElementById("showPasswordBox");
+let usernameEmailEnterError = document.getElementById("usernameEmailEnterError");
+let passswordError = document.getElementById("passswordError");
+let verifyError2 = document.getElementById("verifyError2");
+
+let emailRequestSend = 0;
+let logInRequestSend = 0;
+let emailRequestSend2 = 0;
 
 signUpInput.addEventListener('mouseover' , function() {
    signUpInput.style.backgroundColor = "#C9BAFF"
@@ -86,6 +93,36 @@ verificationDiv.addEventListener('click' , function() {
       sendEmailButton.className = "infoBoxForEmail";
       VerifyBox.prepend(sendEmailButton);
       
+      sendEmailButton.addEventListener('click' , function(){
+         
+         emailRequestSend++
+
+         if (emailRequestSend > 1) {
+            sendEmailButton.style.pointerEvents = "none";
+            sendEmailButton.innerHTML = "please wait";
+        
+            setTimeout(function() {
+              emailRequestSend2++ 
+              sendEmailButton.style.pointerEvents = "auto";
+              emailRequestSend = 0;
+              sendEmailButton.innerHTML = "Send email verification again";
+              sendEmailButton.style.backgroundColor = "#DFD6FF";
+            }, 10000);
+         }
+         if (emailRequestSend2 > 3) {
+            sendEmailButton.style.pointerEvents = "none";
+            sendEmailButton.innerHTML = "too many requests sent";
+            signupError.innerHTML = "wait 20m before sending a request again";
+            
+            setTimeout(function() {
+               sendEmailButton.style.pointerEvents = "auto";
+               emailRequestSend2 = 0;
+               emailRequestSend = 0;
+               sendEmailButton.innerHTML = "Send email verification again";
+            }, 1200000);
+         } 
+      });
+
       verifyInput.innerHTML = "";
       verifyInput.className = "infoBox1";
       verifyInput.style.marginTop = "11px";
@@ -114,6 +151,7 @@ verificationDiv.addEventListener('click' , function() {
          VerifyBox.prepend(verificationDiv);
        
       });
+
    });
 
    row2.addEventListener("click" , function() {
@@ -143,7 +181,69 @@ verificationDiv.addEventListener('click' , function() {
 let usernameEmailEnter = document.getElementById("usernameEmailEnter");
 let signupError = document.getElementById("signupError");
 
+usernameEmailEnter.addEventListener('input' , function() {
+   signupError.innerHTML = "";
+});
+
+password.addEventListener('input' , function() {
+   signupError.innerHTML = "";
+});
+
+verifyInput.addEventListener('input' , function() {
+   signupError.innerHTML = "";
+});
+
 signUpInput.addEventListener('click' , function() {
 
+   signUpInput.style.pointerEvents = "none";
+
+   setTimeout(function() {
+      
+   signUpInput.style.pointerEvents = "auto"
+   logInRequestSend++
+
+   
+   if (usernameEmailEnter.value !== "") {
+      
+      if (password.value !== "") {
+         
+            if (verifyInput.style.visibility === "visible") {
+               if (verifyInput.value !== "") {
+         
+               } else {
+                  verifyError2.innerHTML = "please enter your verification code";
+               }
+            } else if (verifyInput.style.visibility === "hidden") {
+               signupError.innerHTML = "please select a verification method";
+            }
+
+      } else {
+         passswordError.innerHTML = "enter your password";
+      }
+
+   } else {
+      usernameEmailEnterError.innerHTML = "please fill in your username or email";
+   }
+   
+   let attemptArray = [0.0,0,0,3,2,1];
+   if (logInRequestSend >= 3) {
+      signupError.innerHTML = "You have " + attemptArray[logInRequestSend] + " attempts left";
+   }   
+   
+   if (logInRequestSend > 5) {
+      signUpInput.style.pointerEvents = "none";
+      signupError.innerHTML = "try again in 20m";
+      signUpInput.innerHTML = "Maximum attempts reached";
+      
+      setTimeout(function() {
+         signUpInput.style.pointerEvents = "auto"
+         signUpInput.innerHTML = "Log In";
+         signupError.innerHTML = "";
+         logInRequestSend = 0;
+      }, 1200000);
+   }
+   
+   }, 1000);
    
 });
+
