@@ -210,11 +210,8 @@ body {
 }
 
 #verifyInput {
-   visibility: hidden;
-}
-
-#verifyInput {
    margin-top: 11px;
+   visibility: hidden;
 }
 
 .infoBox5 {

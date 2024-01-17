@@ -12,10 +12,30 @@ let showPasswordBox = document.getElementById("showPasswordBox");
 let usernameEmailEnterError = document.getElementById("usernameEmailEnterError");
 let passswordError = document.getElementById("passswordError");
 let verifyError2 = document.getElementById("verifyError2");
+let usernameEmailEnter = document.getElementById("usernameEmailEnter");
+let signupError = document.getElementById("signupError");
 
 let emailRequestSend = 0;
 let logInRequestSend = 0;
 let emailRequestSend2 = 0;
+
+password.addEventListener('input' , function(){
+   usernameEmailEnterError.innerHTML = "";
+   passswordError.innerHTML = "";
+   verifyError2.innerHTML = "";
+});
+
+usernameEmailEnter.addEventListener('input' , function(){
+   usernameEmailEnterError.innerHTML = "";
+   passswordError.innerHTML = "";
+   verifyError2.innerHTML = "";
+});
+
+verifyInput.addEventListener('input' , function(){
+   usernameEmailEnterError.innerHTML = "";
+   passswordError.innerHTML = "";
+   verifyError2.innerHTML = "";
+});
 
 signUpInput.addEventListener('mouseover' , function() {
    signUpInput.style.backgroundColor = "#C9BAFF"
@@ -87,7 +107,8 @@ verificationDiv.addEventListener('click' , function() {
 
    row1.addEventListener("click" , function() {
       verificationDiv.remove();
-       
+      verifyError2.innerHTML = ""; 
+
       let sendEmailButton = document.createElement('button');
       sendEmailButton.innerHTML = "Send email verification";
       sendEmailButton.className = "infoBoxForEmail";
@@ -157,7 +178,8 @@ verificationDiv.addEventListener('click' , function() {
    row2.addEventListener("click" , function() {
    
          verificationDiv.remove();
-       
+         verifyError2.innerHTML = "";
+         
       setTimeout(function() {
          VerifyBox.prepend(verificationDiv);
        }, 10);
@@ -178,8 +200,6 @@ verificationDiv.addEventListener('click' , function() {
    
 });
 
-let usernameEmailEnter = document.getElementById("usernameEmailEnter");
-let signupError = document.getElementById("signupError");
 
 usernameEmailEnter.addEventListener('input' , function() {
    signupError.innerHTML = "";
@@ -194,6 +214,10 @@ verifyInput.addEventListener('input' , function() {
 });
 
 signUpInput.addEventListener('click' , function() {
+   
+   usernameEmailEnterError.innerHTML = "";
+   passswordError.innerHTML = "";
+   verifyError2.innerHTML = "";
 
    signUpInput.style.pointerEvents = "none";
 
@@ -213,8 +237,9 @@ signUpInput.addEventListener('click' , function() {
                } else {
                   verifyError2.innerHTML = "please enter your verification code";
                }
-            } else if (verifyInput.style.visibility === "hidden") {
-               signupError.innerHTML = "please select a verification method";
+      
+            } else {
+               verifyError2.innerHTML = "please select a verification method";
             }
 
       } else {
@@ -243,7 +268,6 @@ signUpInput.addEventListener('click' , function() {
       }, 1200000);
    }
    
-   }, 1000);
+   }, 700);
    
 });
-
