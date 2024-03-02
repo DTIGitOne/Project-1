@@ -7,13 +7,14 @@ let deposit = document.getElementById("deposit");
 games.addEventListener("mouseover", function () {
    gamesMenu.style.display = "flex";
    gamesMenu.style.animationName = "dropDown2";
-   games.style.transform = "scale(1.08)";
+   games.style.transform = "scale(1.05)";
 });
 
 gamesMenu.addEventListener("mouseover", function () {
-   games.style.transform = "scale(1.08)";
+   games.style.transform = "scale(1.05)";
    games.style.backgroundColor = "#A6EFC9";
    games.style.boxShadow = "0px 0px 10px 1px rgba(0, 0, 0, 0.2)";
+   games.style.color = "white";
 });
 
 gamesMenu.addEventListener("mouseleave", function () {
@@ -21,6 +22,7 @@ gamesMenu.addEventListener("mouseleave", function () {
    games.style.backgroundColor = "#AEFFD3";
    gamesMenu.style.display = "none";
    games.style.boxShadow = "";
+   games.style.color = "black";
 });
 
 withdraw.addEventListener("mouseover" , function(){
