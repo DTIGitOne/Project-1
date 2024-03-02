@@ -1,3 +1,4 @@
+
 let userName = document.getElementById("userName");
 let userNameError = document.getElementById("userNameError");
 
@@ -120,7 +121,7 @@ signup.addEventListener('click' , function() {
    userNameError.className = "errorBox1";
    userNameError.innerHTML = "";
 
-   if ( userName.value , email.value , password.value , repeatPassword.value , birthdate.value === "") {
+   if ( userName.value && email.value && password.value && repeatPassword.value && birthdate.value === "") {
 
       signupError.innerHTML = "Please fill in all the data";
       
@@ -192,6 +193,10 @@ signup.addEventListener('click' , function() {
                               password1 : password.value,
                               date1 : dateFull,
                            };
+
+                           
+
+                           signUpValidate(info);
    
                         } else {
                            birthdateError.innerHTML = "the minimum age is 1930";
@@ -211,16 +216,11 @@ signup.addEventListener('click' , function() {
                }
 
             } else {
-               console.log("no");
                if (password.value.length < 6 ) {
                   passwordError.innerHTML = "password must at least contain 6 characters";
-               } 
-
-               if (!password.value.match(passwordRegex)) {
+               } else if (!password.value.match(passwordRegex)) {
                   passwordError.innerHTML = "please add one special and uppercase character";
-               }
-               
-               if (!password.value.match(specialRegex)) {
+               } else if (!password.value.match(specialRegex)) {
                   passwordError.innerHTML = "please add one special and uppercase character";
                }
             }
@@ -252,11 +252,4 @@ signup.addEventListener('click' , function() {
       }
    }
 
-
-
-
-
-
-   
-   
 });

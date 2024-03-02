@@ -179,7 +179,7 @@ verificationDiv.addEventListener('click' , function() {
    
          verificationDiv.remove();
          verifyError2.innerHTML = "";
-         
+
       setTimeout(function() {
          VerifyBox.prepend(verificationDiv);
        }, 10);
@@ -214,8 +214,9 @@ verifyInput.addEventListener('input' , function() {
 });
 
 signUpInput.addEventListener('click' , function() {
-   
-   usernameEmailEnterError.innerHTML = "";
+
+   if (usernameEmailEnter.value !== "" && password.value !== "" && verifyInput.value !== "") {
+      usernameEmailEnterError.innerHTML = "";
    passswordError.innerHTML = "";
    verifyError2.innerHTML = "";
 
@@ -268,6 +269,10 @@ signUpInput.addEventListener('click' , function() {
       }, 1200000);
    }
    
-   }, 700);
+   }, 500);
+
+   } else {
+      signupError.innerHTML = "Please enter something";
+   }
    
 });
