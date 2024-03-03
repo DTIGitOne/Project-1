@@ -73,3 +73,52 @@ spinButton.addEventListener("click" , function (){
         rouletteWheel2.style.animationName = "";
     }, 10000);
 });
+
+function startProgressAnimation() {
+    let progressBar = document.querySelector(".circular-progress");
+    let valueContainer = document.querySelector(".value-container");
+
+    let progressEndValue = 100;
+    let totalDuration = 25000; // Total duration in milliseconds
+    let steps = 100; // Number of steps
+
+    let interval = totalDuration / steps;
+
+    let progressValue = 0;
+    let elapsedTime = 0;
+
+    function animateProgress() {
+        let animationInterval = setInterval(() => {
+            progressValue++;
+            valueContainer.textContent = `${progressValue}%`;
+
+            // Calculate remaining time in seconds and update valueContainer
+            let remainingSeconds = Math.round((totalDuration - elapsedTime) / 1000);
+            valueContainer.textContent = `${progressValue}% (${remainingSeconds} s)`;
+
+            progressBar.style.background = `conic-gradient(
+                #4d5bf9 ${progressValue * (360 / progressEndValue)}deg,
+                #cadcff ${progressValue * (360 / progressEndValue)}deg
+            )`;
+
+            if (progressValue === progressEndValue) {
+                clearInterval(animationInterval);
+                setTimeout(() => {
+                    root.style.setProperty('--deg', '2080deg');
+                    root.style.setProperty('--deg2', '-1820deg');
+                    rouletteWheel.style.animationName = "spin";
+                    rouletteWheel2.style.animationName = "spinInner";
+                    setTimeout(() => {
+                        rouletteWheel.style.animationName = "";
+                        rouletteWheel2.style.animationName = "";
+                    }, ); // Reset animation after cooldown duration
+                }, ); // Execute after cooldown duration
+            }
+            elapsedTime += interval;
+        }, interval);
+    }
+
+    animateProgress();
+}
+
+startProgressAnimation();
