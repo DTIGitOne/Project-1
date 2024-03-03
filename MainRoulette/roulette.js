@@ -3,6 +3,10 @@ let games = document.getElementById("games");
 let gamesMenu = document.getElementById("gamesMenu");
 let withdraw = document.getElementById("withdraw");
 let deposit = document.getElementById("deposit");
+let roulette = document.getElementById("roulette");
+
+let width1 = games.getBoundingClientRect().width;
+   roulette.style.width = `${width1}px`;
 
 games.addEventListener("mouseover", function () {
    gamesMenu.style.display = "flex";
@@ -31,4 +35,41 @@ withdraw.addEventListener("mouseover" , function(){
 
 deposit.addEventListener("mouseover" , function(){
    gamesMenu.style.display = "none";
+});
+
+let rouletteWheel = document.getElementById("rouletteWheel");
+let spinButton = document.getElementById("spinButton");
+let root = document.documentElement;
+let rouletteWheel2 = document.getElementById("rouletteWheel2");
+
+let size1 = 0;
+
+for (let i = 0; i < 40; i++) {
+    let rouletteChild = rouletteWheel.children[i];
+    let computedStyle = window.getComputedStyle(rouletteChild);
+    if (i >= 1) {
+        size1 += 9;
+    }
+    rouletteChild.style.transform = "rotate(" + size1 + "deg)";
+}
+
+for (let i = 0; i < 40; i++) {
+    let rouletteChild = rouletteWheel2.children[i];
+    let computedStyle = window.getComputedStyle(rouletteChild);
+    if (i >= 1) {
+        size1 += 9;
+    }
+    rouletteChild.style.transform = "rotate(" + size1 + "deg)";
+}
+
+spinButton.addEventListener("click" , function (){
+    root.style.setProperty('--deg', '2080deg');
+    root.style.setProperty('--deg2','-1820deg');
+    rouletteWheel.style.animationName = "spin";
+    rouletteWheel2.style.animationName = "spinInner";
+
+    setTimeout(() => {
+        rouletteWheel.style.animationName = "";
+        rouletteWheel2.style.animationName = "";
+    }, 10000);
 });
