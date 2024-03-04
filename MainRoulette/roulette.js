@@ -62,57 +62,58 @@ for (let i = 0; i < 40; i++) {
     rouletteChild.style.transform = "rotate(" + size1 + "deg)";
 }
 
-spinButton.addEventListener("click" , function (){
-    root.style.setProperty('--deg', '2080deg');
-    root.style.setProperty('--deg2','-1820deg');
-    rouletteWheel.style.animationName = "spin";
-    rouletteWheel2.style.animationName = "spinInner";
-
-    setTimeout(() => {
-        rouletteWheel.style.animationName = "";
-        rouletteWheel2.style.animationName = "";
-    }, 10000);
-});
-
 function startProgressAnimation() {
     let progressBar = document.querySelector(".circular-progress");
     let valueContainer = document.querySelector(".value-container");
+    let textSpin =document.getElementById("textSpin");
+    textSpin.innerHTML = "Next spin in";
 
     let progressEndValue = 100;
-    let totalDuration = 100000; // Total duration in milliseconds
-    let steps = 100000; // Number of steps
+    let totalDuration = 25000; // Total duration in milliseconds
+    let steps = 1000; // Number of steps
     
     let interval = totalDuration / steps;
 
     let progressValue = 0;
     let elapsedTime = 0;
+    let isTimerZero = false;
 
     function animateProgress() {
         let animationInterval = setInterval(() => {
             progressValue += 0.1;
-            //valueContainer.textContent = `${progressValue}%`;
 
             // Calculate remaining time in seconds and update valueContainer
             let remainingSeconds = Math.round((totalDuration - elapsedTime) / 1000);
-            //valueContainer.textContent = `${progressValue}% (${remainingSeconds} s)`;
+            if (remainingSeconds > -0.2) {
+                valueContainer.textContent = `${remainingSeconds}s`;
+            } else {
+                if (!isTimerZero) {
+                    textSpin.innerHTML = "Spinning";
+                    valueContainer.textContent = ``; // Clear the content if remainingSeconds is 0 for the first time
+                    isTimerZero = true; // Update the flag
+                }
+            }
+            
 
             progressBar.style.background = `conic-gradient(
-                #4d5bf9 ${progressValue * (360 / progressEndValue)}deg,
-                #cadcff ${progressValue * (360 / progressEndValue)}deg
+                #cadcff ${progressValue * (360 / progressEndValue)}deg,
+                #4d5bf9 ${progressValue * (360 / progressEndValue)}deg
             )`;
 
-            if (progressValue === progressEndValue) {
-                clearInterval(animationInterval);
+            if (Math.abs(progressValue - progressEndValue) < 0.001) {
+                root.style.setProperty('--deg', '2080deg');
+                root.style.setProperty('--deg2','-1820deg');
+                rouletteWheel.style.animationName = "spin";
+                rouletteWheel2.style.animationName = "spinInner";
+                
                 setTimeout(() => {
-                    root.style.setProperty('--deg', '2080deg');
-                    root.style.setProperty('--deg2', '-1820deg');
-                    rouletteWheel.style.animationName = "spin";
-                    rouletteWheel2.style.animationName = "spinInner";
-                    setTimeout(() => {
-                        rouletteWheel.style.animationName = "";
-                        rouletteWheel2.style.animationName = "";
-                    }, ); // Reset animation after cooldown duration
-                }, ); // Execute after cooldown duration
+                    rouletteWheel.style.animationName = "";
+                    rouletteWheel2.style.animationName = "";
+                    totalDuration = 0;
+                    steps = 0;
+                    progressValue = 0;
+                    restartProgressAnimation();
+                }, 15000);
             }
             elapsedTime += interval;
         }, interval);
@@ -121,4 +122,16 @@ function startProgressAnimation() {
     animateProgress();
 }
 
+function restartProgressAnimation() {
+    // Reset progressValue and elapsedTime
+    progressValue = 0;
+    elapsedTime = 0;
+    // Call startProgressAnimation again
+    startProgressAnimation();
+}
+
 startProgressAnimation();
+
+let betInputBox = document.getElementById("betInputBox");
+let betSelectBox = document.getElementById("betSelectBox");
+
