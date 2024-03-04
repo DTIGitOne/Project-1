@@ -79,9 +79,9 @@ function startProgressAnimation() {
     let valueContainer = document.querySelector(".value-container");
 
     let progressEndValue = 100;
-    let totalDuration = 25000; // Total duration in milliseconds
-    let steps = 100; // Number of steps
-
+    let totalDuration = 100000; // Total duration in milliseconds
+    let steps = 100000; // Number of steps
+    
     let interval = totalDuration / steps;
 
     let progressValue = 0;
@@ -89,12 +89,12 @@ function startProgressAnimation() {
 
     function animateProgress() {
         let animationInterval = setInterval(() => {
-            progressValue++;
-            valueContainer.textContent = `${progressValue}%`;
+            progressValue += 0.1;
+            //valueContainer.textContent = `${progressValue}%`;
 
             // Calculate remaining time in seconds and update valueContainer
             let remainingSeconds = Math.round((totalDuration - elapsedTime) / 1000);
-            valueContainer.textContent = `${progressValue}% (${remainingSeconds} s)`;
+            //valueContainer.textContent = `${progressValue}% (${remainingSeconds} s)`;
 
             progressBar.style.background = `conic-gradient(
                 #4d5bf9 ${progressValue * (360 / progressEndValue)}deg,
