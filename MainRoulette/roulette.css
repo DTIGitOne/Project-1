@@ -5,18 +5,18 @@ html {
 body {
    height: 100%;
    margin: 0;
+   background-color: #D2FFE7;
 }
 
 #root {
    height: 100%;
    margin: 0;
-   background-color: #E5FFF1;
+   background: linear-gradient(35deg, #EAD7FF 50%, #D2FFE7 50%);
 }
 
 #menu {
    width: 100%;
    height: 8%;
-   background-color: #AEFFD3;
    display: flex;
    justify-content: space-between;
    align-items: center;
@@ -26,6 +26,11 @@ body {
    left: 0;
    display: flex;
    overflow: hidden;
+   border: 1px solid rgba(255, 255, 255, 0.25);
+   background: rgba(255, 255, 255, 0.05);
+   box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+ 
+   backdrop-filter: blur(15px);
 }
 
 #winnerBox {
@@ -59,13 +64,22 @@ body {
 }
 
 #betSelection {
-   height: 30%;
-   width: 100%;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   gap: 50px;
+  max-width: 500px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  max-width: 700px;
+  height: 500px;
+  padding: 35px;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
 }
 
 .dropDownMenu {
@@ -87,37 +101,6 @@ body {
    height: 100%;
 }
 
-@keyframes dropDown {
-   0% {
-      background-color: #AEFFD3;
-      color: black;
-  }
-  100% {
-      background-color: #A6EFC9;
-      color: white;
-  }
-}
-
-@keyframes dropDown2 {
-   0% {
-      max-height: 0%;
-  }
-  100% {
-      max-height: 8%;
-  }
-}
-
-@keyframes logIn {
-   0% {
-      background-color: #EAD7FF;
-      color: black;
-  }
-  100% {
-      background-color: #dcc5f5;
-      color: white;
-  }
-}
-
 #menuLeft {
    height: 100%;
    width: 25%;
@@ -136,41 +119,211 @@ body {
    width: 100%;
 }
 
-.buttons1 {
-   width: 150px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-size: 26px;
+#menuLeft .btn {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 150px;
+	font-size: 26px;
+   height: 100%;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
    font-family: "Comfortaa", sans-serif;
-   cursor: pointer;
-   transition: transform 0.3s ease;
+}
+#menuLeft .btn a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #555;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
    user-select: none;
 }
+#menuLeft .btn:hover a {
+	letter-spacing: 2px;
+   color: #fff;
 
-.buttons1:hover {
-   animation-name: dropDown ;
-   animation-fill-mode: forwards;
-   animation-duration: 0.4s;
-   transform: scale(1.05);
-   box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.2);
+}
+#menuLeft .btn a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.5s;
+	filter: blur(0px);
+}
+#menuLeft .btn:hover a::before {
+	transform: skewX(45deg) translate(200px);
+}
+#menuLeft .btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: 50%;
+	width: 1px;
+	height: 1px;
+	border-radius: 10px;
+	transition: 0.1s;
+	transition-delay: 0.5;
+}
+#menuLeft .btn:hover::before /*redBlack them width 85%*/ {
+	bottom: 50%;
+	height: 50%;
+	width: 85%;
+	border-radius: 100px;
 }
 
-#login {
-   height: 50px;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   font-size: 20px;
+#menuLeft .btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: 50%;
+	width: 1px;
+	height: 1px;
+	border-radius: 10px;
+	transition: 0.1s;
+	transition-delay: 0.5;
+}
+#menuLeft .btn:hover::after /*redBlack them width 85%*/ {
+	top: 50%;
+	height: 50%;
+	width: 85%;
+	border-radius: 30px;
+}
+#menuLeft .btn::before, /*chnage 1*/
+#menuLeft .btn::after {
+	background: #D3A3FF;
+	box-shadow: 0 0 5px #D3A3FF, 0 0 5px #D3A3FF, 0 0 5px #D3A3FF,
+		0 0 0px #D3A3FF;
+}
+
+
+.container {
+	width: 130px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.container .btn {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100px;
+	font-size: 20px;
+   height: 46px;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
    font-family: "Comfortaa", sans-serif;
-   background-color: #EAD7FF;
-   border-radius: 10px;
-   padding: 2px 15px;
-   margin-right: 10px;
-   cursor: pointer;
-   transition: transform 0.3s ease;
-   animation-duration: 0.3s;
-   animation-fill-mode: forwards;
+}
+.container .btn a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(211, 163, 255, 0.7);
+	box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.5s;
+	backdrop-filter: blur(15px);
+}
+.container .btn:hover a {
+	letter-spacing: 2px;
+}
+.container .btn a::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.5s;
+	filter: blur(7px);
+}
+.container .btn:hover a::before {
+	transform: skewX(45deg) translate(200px);
+}
+.container .btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: 50%;
+	width: 1px;
+	height: 1px;
+	border-radius: 10px;
+	transition: 0.1s;
+	transition-delay: 0.5;
+}
+.container .btn:hover::before /*redBlack them width 85%*/ {
+	bottom: 50%;
+	height: 50%;
+	width: 85%;
+	border-radius: 100px;
+}
+
+.container .btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: 50%;
+	width: 1px;
+	height: 1px;
+	border-radius: 10px;
+	transition: 0.1s;
+	transition-delay: 0.5;
+}
+.container .btn:hover::after /*redBlack them width 85%*/ {
+	top: 50%;
+	height: 50%;
+	width: 85%;
+	border-radius: 30px;
+}
+.container .btn:nth-child(1)::before, /*chnage 1*/
+.container .btn:nth-child(1)::after {
+	background: #D3A3FF;
+	box-shadow: 0 0 5px #D3A3FF, 0 0 5px #D3A3FF, 0 0 5px #D3A3FF,
+		0 0 0px #D3A3FF;
 }
 
 #link1 {
@@ -407,6 +560,7 @@ body {
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: 50px;
    color: #555;
+   z-index: 10;
 }
 
 .textSpin {
@@ -414,6 +568,21 @@ body {
    font-size: 38px;
    color: #555;
    font-family: "Comfortaa", sans-serif;
+}
+
+#spinTextBackgroundBox {
+   height: 311px;
+   width: 311px;
+   position: absolute;
+}
+
+#spinTextBackground {
+   height: 100%;
+   width: 100%;
+   border-radius: 50%;
+   background: rgba(255, 255, 255, 0.1);
+   backdrop-filter: blur(15px);
+   overflow: hidden;
 }
 
 #betInputBox {
@@ -433,6 +602,10 @@ body {
 .bt1 {
    height: 75%;
    width: 45px;
+   background: rgba(255, 255, 255, 0.2);
+   backdrop-filter: blur(15px);
+   overflow: hidden;
+   border-radius: 4px;
 }
 
 .bt1Settings {
