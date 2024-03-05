@@ -16,14 +16,14 @@ games.addEventListener("mouseover", function () {
 
 gamesMenu.addEventListener("mouseover", function () {
    games.style.transform = "scale(1.05)";
-   games.style.backgroundColor = "#A6EFC9";
+   games.style.backgroundColor = "#06fa8a";
    games.style.boxShadow = "0px 0px 10px 1px rgba(0, 0, 0, 0.2)";
    games.style.color = "white";
 });
 
 gamesMenu.addEventListener("mouseleave", function () {
    games.style.transform = "scale(1.00)";
-   games.style.backgroundColor = "#AEFFD3";
+   games.style.backgroundColor = "rgba(65, 65, 65, 0.01)";
    gamesMenu.style.display = "none";
    games.style.boxShadow = "";
    games.style.color = "black";
@@ -96,8 +96,8 @@ function startProgressAnimation() {
             
 
             progressBar.style.background = `conic-gradient(
-                #cadcff ${progressValue * (360 / progressEndValue)}deg,
-                #4d5bf9 ${progressValue * (360 / progressEndValue)}deg
+                #575757 ${progressValue * (360 / progressEndValue)}deg,
+                #fd2ebc ${progressValue * (360 / progressEndValue)}deg
             )`;
 
             if (Math.abs(progressValue - progressEndValue) < 0.001) {

@@ -8,10 +8,16 @@ body {
    background-color: #D2FFE7;
 }
 
+:root {
+   --primary-color: #007bff; /* Blue */
+   --primary-accent-color: #fd2ebc; 
+   --secondary-accent-color: #06fa8a; 
+ }
+
 #root {
    height: 100%;
    margin: 0;
-   background: linear-gradient(35deg, #EAD7FF 50%, #D2FFE7 50%);
+   background: linear-gradient(20deg, #414141 50%, #2C2C2C 50%);
 }
 
 #menu {
@@ -27,7 +33,7 @@ body {
    display: flex;
    overflow: hidden;
    border: 1px solid rgba(255, 255, 255, 0.25);
-   background: rgba(255, 255, 255, 0.05);
+   background-color: rgba(65, 65, 65, 0.9);
    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
  
    backdrop-filter: blur(15px);
@@ -36,7 +42,7 @@ body {
 #winnerBox {
    height: 4%;
    width: 100%;
-   background-color: #EAD7FF;
+   background-color: var(--primary-accent-color);
 }
 
 #middle {
@@ -76,8 +82,8 @@ body {
 
   border: 1px solid rgba(255, 255, 255, .25);
   border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.45);
-  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  background-color: rgba(255, 255, 255, 0.11);
+  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
 
   backdrop-filter: blur(15px);
 }
@@ -85,7 +91,7 @@ body {
 .dropDownMenu {
    height: 8%;
    width: 100%;
-   background-color: #A6EFC9;
+   background-color: var(--secondary-accent-color);
    display: none;
    animation-duration: 0.5s;
    position: absolute;
@@ -119,7 +125,7 @@ body {
    width: 100%;
 }
 
-#menuLeft .btn {
+.menuLeft .btn {
 	position: relative;
 	top: 0;
 	left: 0;
@@ -132,7 +138,8 @@ body {
 	align-items: center;
    font-family: "Comfortaa", sans-serif;
 }
-#menuLeft .btn a {
+
+.menuLeft .btn a {
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -141,82 +148,79 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: rgba(255, 255, 255, 0.05);
+	background-color: rgba(65, 65, 65, 0.01);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
 	padding: 10px;
 	letter-spacing: 1px;
 	text-decoration: none;
 	overflow: hidden;
-	color: #555;
+	color: #fff;
 	font-weight: 400px;
 	z-index: 1;
 	transition: 0.5s;
 	backdrop-filter: blur(15px);
    user-select: none;
 }
-#menuLeft .btn:hover a {
+.menuLeft .btn:hover a {
 	letter-spacing: 2px;
-   color: #fff;
-
+   color: #555;
 }
-#menuLeft .btn a::before {
+.menuLeft .btn a::before {
 	content: "";
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 50%;
 	height: 100%;
-	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.02), transparent);
 	transform: skewX(45deg) translate(0);
 	transition: 0.5s;
 	filter: blur(0px);
 }
-#menuLeft .btn:hover a::before {
+.menuLeft .btn:hover a::before {
 	transform: skewX(45deg) translate(200px);
 }
-#menuLeft .btn::before {
+.menuLeft .btn::before {
 	content: "";
 	position: absolute;
 	left: 50%;
 	transform: translatex(-50%);
 	bottom: 50%;
-	width: 1px;
-	height: 1px;
+	width: 0px;
+	height: 0px;
 	border-radius: 10px;
 	transition: 0.1s;
 	transition-delay: 0.5;
 }
-#menuLeft .btn:hover::before /*redBlack them width 85%*/ {
-	bottom: 50%;
-	height: 50%;
-	width: 85%;
-	border-radius: 100px;
+.menuLeft .btn:hover::before /*redBlack them width 85%*/ {
+	bottom: 0;
+	height: 100%;
+	width: 100%;
 }
 
-#menuLeft .btn::after {
+.menuLeft .btn::after {
 	content: "";
 	position: absolute;
 	left: 50%;
 	transform: translatex(-50%);
 	top: 50%;
-	width: 1px;
-	height: 1px;
+	width: 0px;
+	height: 0px;
 	border-radius: 10px;
 	transition: 0.1s;
-	transition-delay: 0.5;
+	transition-delay: 0.4;
 }
-#menuLeft .btn:hover::after /*redBlack them width 85%*/ {
-	top: 50%;
-	height: 50%;
-	width: 85%;
-	border-radius: 30px;
+.menuLeft .btn:hover::after /*redBlack them width 85%*/ {
+	top: 0;
+	height: 100%;
+	width: 100%;
 }
-#menuLeft .btn::before, /*chnage 1*/
-#menuLeft .btn::after {
-	background: #D3A3FF;
-	box-shadow: 0 0 5px #D3A3FF, 0 0 5px #D3A3FF, 0 0 5px #D3A3FF,
-		0 0 0px #D3A3FF;
+.menuLeft .btn::before, /*chnage 1*/
+.menuLeft .btn::after {
+	background: var(--secondary-accent-color);
+	box-shadow: 0 0 7px var(--secondary-accent-color), 0 0 7px var(--secondary-accent-color), 0 0 7px var(--secondary-accent-color),
+		0 0 7px var(--secondary-accent-color);
 }
 
 
@@ -249,7 +253,7 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: rgba(211, 163, 255, 0.7);
+	background: rgba(253, 46, 188, 0.7);
 	box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
 	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 	border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -321,9 +325,9 @@ body {
 }
 .container .btn:nth-child(1)::before, /*chnage 1*/
 .container .btn:nth-child(1)::after {
-	background: #D3A3FF;
-	box-shadow: 0 0 5px #D3A3FF, 0 0 5px #D3A3FF, 0 0 5px #D3A3FF,
-		0 0 0px #D3A3FF;
+	background: var(--primary-accent-color);
+	box-shadow: 0 0 5px var(--primary-accent-color), 0 0 5px var(--primary-accent-color), 0 0 5px var(--primary-accent-color),
+		0 0 0px var(--primary-accent-color);
 }
 
 #link1 {
@@ -380,7 +384,7 @@ body {
    border-radius: 50%;
    width: 582px;
    height: 582px;
-   border: 4px solid #c288ff;
+   border: 4px solid var(--primary-accent-color);
    z-index: 50;
    position: absolute;
 }
@@ -389,7 +393,7 @@ body {
    border-radius: 50%;
    width: 468px;
    height: 468px;
-   border: 4px solid #c288ff;
+   border: 4px solid var(--primary-accent-color);
    z-index: 50;
    position: absolute;
 }
@@ -398,7 +402,7 @@ body {
    border-radius: 50%;
    width: 374px;
    height: 374px;
-   border: 4px solid #c288ff;
+   border: 4px solid var(--primary-accent-color);
    z-index: 50;
    position: absolute;
 }
@@ -425,7 +429,7 @@ body {
    width: 8%;
    position: absolute;
    clip-path: polygon(50% 50%, 0 0, 100% 0); 
-   background: linear-gradient(to top, transparent 90%, #AEFFD3 90%);
+   background: linear-gradient(to top, transparent 90%, #FFBEE6 90%);
    transform-origin: 50% 50%;
    display: inline;
    color: white;
@@ -456,7 +460,7 @@ body {
    width: 8%;
    position: absolute;
    clip-path: polygon(50% 50%, 0 0, 100% 0); 
-   background: linear-gradient(to top, transparent 90%, #A7D7C5 90%);
+   background: linear-gradient(to top, transparent 90%, #9235FF 90%);
    transform-origin: 50% 50%;
    display: inline;
    color: white;
@@ -472,7 +476,7 @@ body {
    width: 8%;
    position: absolute;
    clip-path: polygon(50% 50%, 0 0, 100% 0); 
-   background: linear-gradient(to top, transparent 90%, #00DBCA 90%);
+   background: linear-gradient(to top, transparent 90%, #56FBFF 90%);
    transform-origin: 50% 50%;
    display: inline;
    color: white;
@@ -488,7 +492,7 @@ body {
    width: 8.3%;
    position: absolute;
    clip-path: polygon(50% 50%, 0 0, 100% 0); 
-   background: linear-gradient(to top, transparent 90%, #c288ff 90%);
+   background: linear-gradient(to top, transparent 90%, #06fa8a 90%);
    transform-origin: 50% 50%;
    display: inline;
    color: white;
@@ -551,7 +555,7 @@ body {
    position: absolute;
    height: 84%;
    width: 84%;
-   background-color: #A6EFC9;
+   background-color: #414141;
    border-radius: 50%;
 }
 
@@ -559,14 +563,14 @@ body {
    position: relative;
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    font-size: 50px;
-   color: #555;
+   color: #fff;
    z-index: 10;
 }
 
 .textSpin {
    z-index: 100;
    font-size: 38px;
-   color: #555;
+   color: #fff;
    font-family: "Comfortaa", sans-serif;
 }
 
@@ -674,4 +678,9 @@ body {
    to {
        transform: rotateZ(var(--deg2)); 
    }
+}
+
+@keyframes dropDown2 {
+   0% {height: 0%;}
+   100% {height: 8%;}
 }
