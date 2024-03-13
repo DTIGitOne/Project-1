@@ -37,14 +37,6 @@ verifyInput.addEventListener('input' , function(){
    verifyError2.innerHTML = "";
 });
 
-signUpInput.addEventListener('mouseover' , function() {
-   signUpInput.style.backgroundColor = "#C9BAFF"
-});
-
-signUpInput.addEventListener('mouseleave' , function() {
-   signUpInput.style.backgroundColor = "#DFD6FF"
-});
-
 password.addEventListener("input" , function() {
    
    if (password.value !== "") {

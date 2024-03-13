@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
    <title>Log In Page</title>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
    <link rel="stylesheet" href="login.css">
 </head>
 <body>
    <div class="root">
-      <img src="../pictures/MintTextOnly2.png" id="logoText">
+      <div id="background2"></div>
+      <div id="logoText">MINT<span id="logoText2">ROULETTE</span></div>
       <div class="infoBox">
          <div id="userBox">
             <div id="usernameEmailEnterDiv">
@@ -32,7 +36,9 @@
             <div id="verifyError2" class="errorBox1"></div>
           </div>
           <div id="signupBox">
-            <button id="signUpInput" class="signup">Log In</button>
+            <div class="container">
+              <button id="signUpInput" class="signup btn">Log In</button>
+            </div>
             <div id="signupError" class="errorBox1"></div>
           </div>
       </div>

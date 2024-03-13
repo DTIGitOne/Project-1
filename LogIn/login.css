@@ -5,7 +5,6 @@ html {
 body {
    height: 100%;
    margin: 0;
-   background-color: #E5FFF1;
 }
 
 .root {
@@ -15,24 +14,61 @@ body {
    justify-content: center;
    align-items: center;
    flex-direction: column;
+   background: linear-gradient(290deg,#06fa8a,#007bff, #fd2ebc);
+   background-size: 300% 300%;
+   animation: color 8.5s ease-in-out infinite alternate-reverse;
+}
+
+:root {
+   --primary-color: #007bff; /* Blue */
+   --primary-accent-color: #fd2ebc; 
+   --secondary-accent-color: #06fa8a; 
+ }
+
+@keyframes color {
+   0% {background-position: 0 50%;}
+   50% {background-position: 100% 50%;}
+   100% {background-position: 0 50%;}
+}
+
+#background2 {
+   height: 100%;
+   width: 100%;
+   position: absolute;
+   background: linear-gradient(23deg, #414141 50%, transparent 50%);
 }
 
 .infoBox {
    height: 465px;
    width: 450px;
-   background-color: #A7D7C5;
    border-radius: 30px;
    box-shadow: 0 2px 4px rgba(0, 0, 0, .1), 0 8px 16px rgba(0, 0, 0, .1);
    display: flex;
    gap: 7px;
    flex-direction: column;
    align-items: center;
+   border: 1px solid rgba(255, 255, 255, .25);
+   background-color: rgba(255, 255, 255, 0.20);
+   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.25);
+   backdrop-filter: blur(15px);
+   z-index: 20;
 }
 
 #logoText {
    width: 350px;
-   padding-bottom: 15px;
+   padding-bottom: 13px;
    user-select: none;
+   font-family: "Kanit", sans-serif;
+   text-align: center;
+   font-weight: 700;
+   font-style: normal;
+   font-size: 45px;
+   letter-spacing: 3px;
+   color: #414141;
+}
+
+#logoText2{
+   color: black;
 }
 
 #usernameEmailEnterDiv {
@@ -44,17 +80,22 @@ body {
    width: 360px;
    background-color: #E5FFF1;
    border: none;
+   color: white;
    border-radius: 10px;
    font-size: 19px;
    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
    padding: 0px 0px 0px 9px;
+   background-color: rgba(0, 0, 0, 0.40);
    box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+}
+
+.infoBox1::placeholder {
+   color: #E4E4E4;
 }
 
 .errorBox1 {
    height: 33px;
    width: 360px;
-   background-color: #A7D7C5;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -62,6 +103,122 @@ body {
    color: red;
    font-size: 15px;
    user-select: none;
+}
+
+.container {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.container .btn {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+   height: 40px;
+   width: 360px;
+   border: none;
+   border-radius: 10px;
+   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   font-size: 20px;
+   cursor: pointer;
+   font-weight: 500;
+   box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background: #ff73d3;
+}
+
+.container .btn button {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(253, 46, 188, 0.7);
+	box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 16px;
+	padding: 10px;
+	letter-spacing: 1px;
+	text-decoration: none;
+	overflow: hidden;
+	color: #fff;
+	font-weight: 400px;
+	z-index: 1;
+	transition: 0.2s;
+	backdrop-filter: blur(15px);
+}
+.container .btn:hover button {
+	letter-spacing: 2px;
+}
+.container .btn button::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 50%;
+	height: 100%;
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.15), transparent);
+	transform: skewX(45deg) translate(0);
+	transition: 0.2s;
+	filter: blur(7px);
+}
+.container .btn:hover button::before {
+	transform: skewX(45deg) translate(200px);
+}
+.container .btn::before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	bottom: 50%;
+	width: 1px;
+	height: 1px;
+	border-radius: 10px;
+	transition: 0.1s;
+	transition-delay: 0.5;
+}
+.container .btn:hover::before /*redBlack them width 85%*/ {
+	bottom: 50%;
+	height: 50%;
+	width: 100%;
+	border-radius: 100px;
+}
+
+.container .btn::after {
+	content: "";
+	position: absolute;
+	left: 50%;
+	transform: translatex(-50%);
+	top: 50%;
+	width: 1px;
+	height: 1px;
+	border-radius: 10px;
+	transition: 0.1s;
+	transition-delay: 0.5;
+}
+.container .btn:hover::after /*redBlack them width 85%*/ {
+	top: 50%;
+	height: 50%;
+	width: 100%;
+	border-radius: 30px;
+}
+.container .btn:nth-child(1)::before, /*chnage 1*/
+.container .btn:nth-child(1)::after {
+	background: var(--primary-accent-color);
+	box-shadow: 0 0 5px var(--primary-accent-color), 0 0 5px var(--primary-accent-color), 0 0 5px var(--primary-accent-color),
+		0 0 0px var(--primary-accent-color);
 }
 
 .goBackButton {
@@ -228,19 +385,7 @@ body {
 }
 
 .signup {
-   height: 40px;
-   width: 360px;
-   background-color: #DFD6FF;
-   border: none;
-   border-radius: 10px;
-   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-   font-size: 20px;
-   cursor: pointer;
-   font-weight: 500;
-   box-shadow: 0 0px 2px rgba(0, 0, 0, .1), 0 4px 8px rgba(0, 0, 0, .1);
-   display: flex;
-   align-items: center;
-   justify-content: center;
+   
 }
 
 #signupRedirect {
